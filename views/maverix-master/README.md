@@ -1,0 +1,69 @@
+Maverix
+=======
+
+![Maverix](http://screenisland.com/maverix/maverix.png)
+
+### Demo (Use Webkit or Blink Rendering Engine)
+http://screenisland.com/maverix/
+
+### What is Maverix?
+
+Maverix is a maccish bootstrap theme and application boilerplate. It gives your web-apps a native look and feel and bundles AngularJS and other components such as jQuery, Flot and rangeslider.js
+
+It is perfect to be used for apps that are based on HTML App Containers such as:
+
+- [MacGap](https://github.com/maccman/macgap)
+- [Node-Webkit](https://github.com/rogerwang/node-webkit)
+- [Github Atom Shell](https://github.com/atom/atom-shell)
+- [Adobe Brackets Shell](https://github.com/adobe/brackets-shell)
+
+### Design Decisions
+Closest possible to native
+All controls and Elements are carefully designed to perfectly fit into the native mac environment.
+
+#### Non Responsive (for now...)
+Desktop Apps don't need to run on thousands of different devices and viewports. You are the master of setting a minimum-viewport and the app won't get smaller than this. If you are using Maverix Theme in a traditional web-app it is also okay for Admin Backends that don't need responsive layout.
+
+#### Built on Bootstrap and Less
+Twitters Bootstrap comes bundled with tons of useful styles and add ons and allows beginners and masters to get started quickly (grid positioning, etc.). The maverix styles are enhancing bootstrap and are written in less.css
+
+#### Webkit first
+Maverix Theme is primarily made to enable app container based web-apps to look like native OS X Apps. So webkit is the primary engine when releasing new components. However this doesn't mean that other browsers are totally unsupported. Maverix Theme is tested on Safari, Firefox and Chrome on OS X.
+
+#### Bundled with AngularJS
+AngularJS is one of the best Javascript App Frameworks available today and so Maverix Theme comes bundled with AngularJS including fully working routing to get you started fast. Anyways, AngularJS usage is optional.
+
+### Roadmap
+- Bugfix requests are priority one.
+- New Features will be added as far as they make sense.
+- If demand is high for responsive design I will add it.
+
+### Bugs
+Use the [Maverix Github Issue Tracker](https://github.com/tschundeee/maverix/issues).
+You can also reach out to me at [b.rahnema@gmail.com](mailto:b.rahnema@gmail.com?subject=Maverix)
+
+### Feedback
+Feedback is always welcome.
+
+### License
+The MIT License (MIT)
+
+Copyright (c) 2016 Bijan Rahnema
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

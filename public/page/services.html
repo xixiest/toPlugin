@@ -1,0 +1,137 @@
+<div class="services">
+	<h3>MY PLUGIN</h3>
+	<!--service-page-->
+	<div class="servcs-page">
+		<div class="srvs-row row">
+			<div class="col-sm-6 col-md-4 row-grids">
+				<div class="srvs-thumbnail thumbnail">
+					<a data-rel="/page/initTableData.html" href="#services#initTableData"><img src="images/img12.jpg" alt="img"></a>
+					<div class="srvs-caption caption">
+						<h4><a data-rel="/page/initTableData.html" href="#initTableData">动态加载table数据</a></h4>
+						<p>。。。。。。</p>		 								
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 row-grids">
+				<div class="srvs-thumbnail thumbnail">
+					<a href="#"><img src="images/img13.jpg" alt=""></a>
+					<div class="srvs-caption caption">
+						<h4><a href="#">Finibus Bonorum et Malorum</a></h4>
+						<p>Lorem Ipsum you need to be sure there isn't anything embarrassing embar rassinghidden</p>		 								
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 row-grids">
+				<div class="srvs-thumbnail thumbnail">
+					<a href="#"><img src="images/img14.jpg" alt=""></a>
+					<div class="srvs-caption caption">
+						<h4><a href="#">Finibus Bonorum et Malorum</a></h4>
+						<p>Lorem Ipsum you need to be sure there isn't anything embarrassing embar rassinghidden</p>		 								
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 row-grids">
+				<div class="srvs-thumbnail thumbnail">
+					<a href="#"><img src="images/img15.jpg" alt="img"></a>
+					<div class="srvs-caption caption">
+						<h4><a href="#">Finibus Bonorum et Malorum</a></h4>
+						<p>Lorem Ipsum you need to be sure there isn't anything embarrassing embar rassinghidden</p>		 								
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 row-grids">
+				<div class="srvs-thumbnail thumbnail">
+					<a href="#"><img src="images/img16.jpg" alt=""></a>
+					<div class="srvs-caption caption">
+						<h4><a href="#">Finibus Bonorum et Malorum</a></h4>
+						<p>Lorem Ipsum you need to be sure there isn't anything embarrassing embar rassinghidden</p>		 								
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 row-grids">
+				<div class="srvs-thumbnail thumbnail">
+					<a href="#"><img src="images/img17.jpg" alt=""></a>
+					<div class="srvs-caption caption">
+						<h4><a href="#">Finibus Bonorum et Malorum</a></h4>
+						<p>Lorem Ipsum you need to be sure there isn't anything embarrassing embar rassinghidden</p>		 								
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>	
+	<!--//service-page-->
+<!-- 	<div class="services-info">
+		<h3>Some of our features</h3>
+		<div class="work-grids">
+			<div class="col-md-4 resume-grid">
+				<div class="resume">
+					<span>1</span>
+					<img src="images/icon3.png" alt=""/>
+					<h4>Bonorum</h4>									
+					<h5>Vero accusamus random iusto</h5>
+					<p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here like readable English. Many desktop publishing packages and default model text.</p>	
+					<a class="btn btn-primary" href="#" role="button">Read more</a>
+				</div>
+				<div class="b-wrapper">
+					<span class="b-from-left    b-delay03 ">
+						
+					</span>					
+				</div>
+			</div>
+			<div class="col-md-4 resume-grid ">																	
+				<div class="resume">
+					<span>2</span>
+					<img src="images/icon4.png" alt=""/>
+					<h4>Accusamus</h4>
+					<h5>Vero accusamus random iusto</h5>
+					<p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here like readable English. Many desktop publishing packages and default model text.</p>	
+					<a class="btn btn-primary" href="#" role="button">Read more</a>										
+				</div>		
+			</div>
+			<div class="col-md-4 resume-grid">
+				<div class="resume">
+					<span>3</span>
+					<img src="images/icon5.png" alt=""/>
+					<h4>Voluptatum</h4>
+					<h5>Vero accusamus random iusto</h5>
+					<p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here like readable English. Many desktop publishing packages and default model text.</p>	
+					<a class="btn btn-primary" href="#" role="button">Read more</a>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div> -->
+</div>
+
+<script type="text/javascript">
+    if (history.pushState != 'null') {
+		window.addEventListener("popstate", function(e) {
+		    // var state = e.state;
+		    // do something...
+		    if (e.state != null) {
+		    	toAjaxToTarget(e.state,false);
+		    }
+		});     	
+    }
+    function toAjaxToTarget(toUrl,isPush){
+		$.ajax({
+			url:toUrl,
+			type:"GET",
+			success:function(data){
+				$('.main-about').html(data);
+				if (isPush == true) {
+					window.history.replaceState(toUrl,null,null);
+				}
+			}
+		})
+    }
+
+    $('.services').on('click','a',function(){
+    	let $thisURl = $(this).attr('data-rel');  
+        console.log($thisURl);
+    	toAjaxToTarget($thisURl,true);
+    })	
+
+
+</script>

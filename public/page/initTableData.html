@@ -1,0 +1,24 @@
+<div class="col-md-10 col-md-offset-1 container-fluid">
+	<div class="col-md-12" style="height: 30px;"></div>
+	<div class="col-md-12">
+        <div class="col-md-12">
+            <table class="table table-bordered display" id="dataTables-example" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>姓名</th>
+                        <th>年龄</th>
+                    </tr>
+                </thead>
+            </table>            
+        </div>
+	</div>	
+</div>
+<script type="text/javascript" src="js/to.dataTables.init.js"></script>
+<script type="text/javascript">
+        //初始化、数据动态加载
+    $('#dataTables-example').toInitData ({
+        data: [['你试试吧','你试试吧','你试试吧']],
+        url : '/data/datatables.json'
+    });  
+</script>

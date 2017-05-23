@@ -1,0 +1,140 @@
+<div class="row">
+    <div class="col-md-12">
+        <form role="form" id="test_form">
+            <div class="form-group">
+                <label>Email address</label>
+                <input type="text" name="first_age" class="form-control" placeholder="Enter Your Name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFile">File input</label>
+                <input type="file" id="exampleInputFile">
+
+                <p class="help-block">Example block-level help text here.</p>
+            </div>
+            <div class="form-group">
+                <label>Textarea</label><br>
+                <textarea cols="50" rows="10"></textarea>
+
+                <p class="help-block">Example block-level help text here.</p>
+            </div>
+            <div class="form-group">
+                <label>Default Select:</label>
+                <select>
+                    <option>Option A</option>
+                    <option>Option B</option>
+                </select>
+
+                <p class="help-block">This is the default Select.</p>
+            </div>
+            <div class="form-group">
+                <label>Large Select:</label>
+                <select class="select-large">
+                    <option>Option A</option>
+                    <option>Option B</option>
+                </select>
+
+                <p class="help-block">This Select Style modifies the Default Select and makes it larger (Looks on Webkit).</p>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> Check me out
+                </label>
+            </div>
+            <input type="submit" value="Submit"/>
+
+        </form>
+    </div>
+</div>
+
+<script>
+
+    console.log(133);
+    $('#test_form').bootstrapValidator({　　　　　　
+      message: 'This value is not valid',
+      feedbackIcons: {　　　　　　　　 
+        valid: 'glyphicon glyphicon-ok', 　　　　　　　　
+        invalid: 'glyphicon glyphicon-remove', 　　　　　　　　
+        validating: 'glyphicon glyphicon-refresh'　　　　　　　　 
+      },
+      fields: {
+        first_age: {
+          validators: {
+            notEmpty: {
+              message: '年龄不能为空'
+            },
+            digits: {
+              message: '年龄只能输入数字'
+            },
+            callback: {
+              message: '输入1-20之间的年龄',
+              callback: function(value, validator) {
+                console.log(value);
+                if(value > 0 && value < 21) {
+                  return true;
+                }
+                return false;
+              }
+            }
+          }
+        },
+        last_age: {
+          validators: {
+            notEmpty: { message: '年龄不能为空' },
+            numeric: { message: '年龄只能输入数字' },
+            callback: {
+              message: '输入1-20之间的年龄',
+              callback: function(value, validator) {
+                // console.log(value);
+                var lastAge = validator.getFieldElements('first_age').val();
+                // console.log(lastAge);
+                if(value > lastAge - 1 && value < 21) {
+                  return true;
+                }
+                return false;
+              }
+            },
+          }
+        },
+
+        start_time: {
+          validators: {
+            notEmpty: {
+              message: '开始时间不能为空'
+            }
+          }
+        },
+        end_time: {
+          validators: {
+            notEmpty: {
+              message: '结束时间不能为空'
+            }
+          }
+        },
+        name: {
+          validators: {
+            notEmpty: {
+              message: '活动名称不能为空'
+            }
+          }
+        },
+        subtitle: {
+          validators: {
+            notEmpty: {
+              message: '正文不能为空'
+            }
+          }
+        }
+      }
+    });
+
+
+</script>
