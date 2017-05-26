@@ -1,0 +1,67 @@
+<div class="col-md-10 col-md-offset-1 container-fluid">
+	<div class="col-md-12" style="height: 30px;"></div>
+	<div class="col-md-12">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="col-ls-12 col-md-10 col-sm-12" style="background-color: #fbfbfb;border-radius: 2px;padding:20px">
+                <p>
+                    <font face="Comic Sans MS" size="3">客户端代码：</font><br><br>
+                    <font face="Comic Sans MS" size="3">&nbsp; &nbsp; var&nbsp;ws&nbsp;=&nbsp;new&nbsp;WebSocket("ws://192.168.102.205:9000");
+                    </font></p><p><font face="Comic Sans MS" size="3">&nbsp;&nbsp;&nbsp;&nbsp;ws.onopen&nbsp;=&nbsp;function(evt)&nbsp;{&nbsp;
+                    </font></p><p><font face="Comic Sans MS" size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("连接服务器成功");&nbsp;
+                    </font></p><p><font face="Comic Sans MS" size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ws.send("Hello&nbsp;茜茜!");
+                    </font></p><p><font face="Comic Sans MS" size="3">&nbsp;&nbsp;&nbsp;&nbsp;};
+                    </font></p><p><font face="Comic Sans MS" size="3">&nbsp;&nbsp;&nbsp;&nbsp;ws.onmessage&nbsp;=&nbsp;function(evt)&nbsp;{
+                    </font></p><p><font face="Comic Sans MS" size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(&nbsp;"收到的信息:&nbsp;"&nbsp;+&nbsp;evt.data);
+                    </font></p><p><font face="Comic Sans MS" size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ws.close();
+                    </font></p><p><font face="Comic Sans MS" size="3">&nbsp;&nbsp;&nbsp;&nbsp;};
+                    </font></p><p><font face="Comic Sans MS" size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </font></p><p><font face="Comic Sans MS" size="3">&nbsp;&nbsp;&nbsp;&nbsp;ws.onclose&nbsp;=&nbsp;function(evt)&nbsp;{
+                    </font></p><p><font face="Comic Sans MS" size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("服务器关闭");
+                    </font></p><p><font face="Comic Sans MS" size="3">&nbsp;&nbsp;&nbsp;&nbsp;};&nbsp;&nbsp;&nbsp;
+                    </font></p><p><font face="Comic Sans MS" size="3">&nbsp;&nbsp;&nbsp;&nbsp;ws.onerror&nbsp;=&nbsp;function(){
+                    </font></p><p><font face="Comic Sans MS" size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("连接出错");
+                    </font></p><p></p><p><font face="Comic Sans MS" size="3">&nbsp; &nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;
+                    </font></p><p><br>
+                </p>
+                <p>
+                    <font face="Comic Sans MS" size="3">服务器端代码：</font><br><br>
+                    <font face="Comic Sans MS" size="3">var&nbsp;ws&nbsp;=&nbsp;require("nodejs-websocket");
+                    </font></p><p><font face="Comic Sans MS" size="3">console.log(ws&nbsp;+&nbsp;'开始建立websocket链接');
+                    </font></p><p><font face="Comic Sans MS" size="3">var&nbsp;server&nbsp;=&nbsp;ws.createServer(function(conn){
+                    </font></p><p>&nbsp; &nbsp;&nbsp;<font face="Comic Sans MS" size="3">conn.on("text",function(str){
+                    </font></p><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Comic Sans MS" size="3">console.log("收到的信息："&nbsp;+&nbsp;str);
+                    </font></p><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Comic Sans MS" size="3">conn.sendText(str.toUpperCase()+"!!!")
+                    </font></p><p>&nbsp; &nbsp;&nbsp;<font face="Comic Sans MS" size="3">});
+                    </font></p><p>&nbsp; &nbsp;&nbsp;<font face="Comic Sans MS" size="3">conn.on("close",function(code,reason){
+                    </font></p><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Comic Sans MS" size="3">console.log("关闭连接");
+                    </font></p><p>&nbsp; &nbsp;&nbsp;<font face="Comic Sans MS" size="3">})
+                    </font></p><p>&nbsp; &nbsp;&nbsp;<font face="Comic Sans MS" size="3">conn.on('error',function(code,reason){
+                    </font></p><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Comic Sans MS" size="3">console.log("异常关闭");
+                    </font></p><p>&nbsp; &nbsp;&nbsp;<font face="Comic Sans MS" size="3">})
+                    </font></p><p><font face="Comic Sans MS" size="3">}).listen(9000);</font></p><p><br>
+                </p>                
+            </div>
+        </div>
+	</div>	
+</div>
+<script type="text/javascript" src="js/to.dataTables.init.js"></script>
+<script type="text/javascript">
+
+    var ws = new WebSocket("ws://192.168.102.205:9000");
+    ws.onopen = function(evt) { 
+        console.log("连接服务器成功"); 
+        ws.send("Hello 茜茜!");
+    };
+    ws.onmessage = function(evt) {
+        console.log( "收到的信息: " + evt.data);
+        ws.close();
+    };
+     
+    ws.onclose = function(evt) {
+        console.log("服务器关闭");
+    };   
+    ws.onerror = function(){
+        console.log("连接出错");
+    }    
+
+</script>
